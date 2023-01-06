@@ -27,7 +27,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     ProductListComponent,
     ProductItemComponent,
     ProductItemDetailComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +38,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MatSnackBarModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    NgxSkeletonLoaderModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

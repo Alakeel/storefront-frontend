@@ -8,7 +8,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-product-item-detail',
   templateUrl: './product-item-detail.component.html',
-  styleUrls: ['./product-item-detail.component.css'],
+  styleUrls: ['./product-item-detail.component.css']
 })
 export class ProductItemDetailComponent implements OnInit {
   // when API is integrated, quantity will be taken from database
@@ -36,8 +36,7 @@ export class ProductItemDetailComponent implements OnInit {
         found['quantity'] = 1;
         this.product = found;
 
-        this.submitBtnLabel =
-          this.product['quantity'] > 0 ? 'Add to cart' : 'Out of Stock';
+        this.submitBtnLabel = this.product['quantity'] > 0 ? 'Add to cart' : 'Out of Stock';
       }
       this.hasLoaded = true;
     });

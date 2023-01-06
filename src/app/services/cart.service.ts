@@ -4,15 +4,11 @@ import { Product } from '../models/Product';
 import { NotificationService } from './notification.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CartService {
-  cart: Product[] = JSON.parse(
-    sessionStorage.getItem('storefront-temp-cart') || '[]'
-  );
-  orders: Order[] = JSON.parse(
-    sessionStorage.getItem('storefront-temp-orders') || '[]'
-  );
+  cart: Product[] = JSON.parse(sessionStorage.getItem('storefront-temp-cart') || '[]');
+  orders: Order[] = JSON.parse(sessionStorage.getItem('storefront-temp-orders') || '[]');
 
   constructor(private notificationService: NotificationService) {}
 
@@ -26,10 +22,7 @@ export class CartService {
     }
     // save it to local storage so we don't lose the cart on page refresh
     sessionStorage.setItem('storefront-temp-cart', JSON.stringify(this.cart));
-    this.notificationService.openSuccessSnackBar(
-      `${quantity}x ${product.name} Added To Cart`,
-      ''
-    );
+    this.notificationService.openSuccessSnackBar(`${quantity}x ${product.name} Added To Cart`, '');
   };
 
   getCart = (): Product[] => {
@@ -38,9 +31,7 @@ export class CartService {
 
   getItemsInCard = (): number => {
     return parseInt(
-      this.cart
-        .reduce((acc: number, item: Product) => acc + item.quantity, 0)
-        .toFixed(1)
+      this.cart.reduce((acc: number, item: Product) => acc + item.quantity, 0).toFixed(1)
     );
   };
 
@@ -63,10 +54,7 @@ export class CartService {
   getTotalPrice(): number {
     return parseFloat(
       this.cart
-        .reduce(
-          (acc: number, item: Product) => acc + item.quantity * item.price,
-          0
-        )
+        .reduce((acc: number, item: Product) => acc + item.quantity * item.price, 0)
         .toFixed(2)
     );
   }
@@ -74,10 +62,7 @@ export class CartService {
   createOrder(order: Order): Order {
     this.orders.push(order);
     console.log('create new order , orders now => ', this.orders);
-    sessionStorage.setItem(
-      'storefront-temp-orders',
-      JSON.stringify(this.orders)
-    );
+    sessionStorage.setItem('storefront-temp-orders', JSON.stringify(this.orders));
     return order;
   }
 

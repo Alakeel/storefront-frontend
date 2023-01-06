@@ -8,28 +8,28 @@ import { ProductListComponent } from './components/product-list/product-list.com
 const routes: Routes = [
   {
     path: '',
-    component: ProductListComponent,
+    component: ProductListComponent
   },
   {
     path: 'cart',
-    component: CartComponent,
+    component: CartComponent
   },
   {
     path: 'product/:id',
-    component: ProductItemDetailComponent,
+    component: ProductItemDetailComponent
   },
   {
     path: 'confirmation/:id',
-    component: ConfirmationComponent,
+    component: ConfirmationComponent
   },
   {
     path: '**',
-    redirectTo: '',
-  },
+    redirectTo: ''
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

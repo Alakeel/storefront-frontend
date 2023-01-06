@@ -4,12 +4,11 @@ import { Product } from 'src/app/models/Product';
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css'],
+  styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
   @Input() product!: Product;
-  @Output() addToCart: EventEmitter<{ product: Product; quantity: number }> =
-    new EventEmitter();
+  @Output() addToCart: EventEmitter<{ product: Product; quantity: number }> = new EventEmitter();
 
   // when API is integrated, quantity will be taken from database
   quantity: number = 1;
@@ -19,8 +18,7 @@ export class ProductItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.submitBtnLabel =
-      this.product['quantity'] > 0 ? 'Add to cart' : 'Out of Stock';
+    this.submitBtnLabel = this.product['quantity'] > 0 ? 'Add to cart' : 'Out of Stock';
   }
 
   onSubmit = (product: Product) => {

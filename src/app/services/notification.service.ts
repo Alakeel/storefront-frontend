@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class NotificationService implements OnInit {
   ngOnInit(): void {}
@@ -13,7 +13,7 @@ export class NotificationService implements OnInit {
       duration: 2000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
-      panelClass: ['center-snackbar'],
+      panelClass: ['center-snackbar']
     });
   }
 }

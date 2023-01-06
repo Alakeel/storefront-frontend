@@ -7,7 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
   productsInCart: Product[] = [];
@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
       full_name: this.fullName,
       address: this.address,
       total_price: this.getTotalPrice(),
-      cc_number: this.creditCardNumber,
+      cc_number: this.creditCardNumber
     };
 
     const orderId = this.cartService.createOrder(order).id;
