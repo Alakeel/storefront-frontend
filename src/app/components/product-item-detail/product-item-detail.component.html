@@ -1,0 +1,61 @@
+<div *ngIf="hasLoaded; else skelton">
+  <form
+    (ngSubmit)="onSubmit(product)"
+    class="detail-container-row"
+    *ngIf="product; else notFound"
+  >
+    <img src="{{ product.url }}" />
+    <div class="detail-item">
+      <h1>{{ product.name }}</h1>
+      <p>${{ product.price }}</p>
+      <p>{{ product.description }}</p>
+      <div class="detail-container-col">
+        <select
+          class="select-input"
+          [(ngModel)]="quantity"
+          name="{{ product.id }}"
+        >
+          <option *ngFor="let num of quantityList" [ngValue]="num">
+            {{ num }}
+          </option>
+        </select>
+
+        <button
+          type="submit"
+          [disabled]="isSubmitBtnDisabled"
+          class="btn btn-primary"
+        >
+          {{ submitBtnLabel }}
+        </button>
+
+        <a class="back-link" routerLink="/">&larr; Back to product list</a>
+      </div>
+    </div>
+  </form>
+
+  <ng-template #notFound>
+    <div class="product-not-found-container">
+      <h1>Product Not Found</h1>
+      <a routerLink="/">
+        <h4 style="margin-top: 10px">Go Back to Main Page</h4>
+      </a>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #skelton>
+  <ngx-skeleton-loader
+    class="detail-container-row"
+    appearance="circle"
+    animation="progress"
+    count="1"
+    [theme]="{
+      height: '50em',
+      width: '50em',
+      'border-radius': '0',
+      border: '1px solid white',
+      'background-color': '#white',
+      margin: '4em'
+    }"
+  ></ngx-skeleton-loader>
+</ng-template>

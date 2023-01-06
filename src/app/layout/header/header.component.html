@@ -1,0 +1,14 @@
+<div class="header">
+  <h1>{{ title }}</h1>
+  <ul>
+    <li>
+      <a routerLink="/">Product List</a>
+    </li>
+    <li>
+      <a routerLink="/cart"
+        >Cart
+        <span *ngIf="cartCount() > 0">({{ cartCount() }})</span>
+      </a>
+    </li>
+  </ul>
+</div>

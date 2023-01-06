@@ -1,0 +1,27 @@
+<div>
+  <div class="product-container" *ngIf="isDataLoaded">
+    <div class="product-index">
+      <app-product-item
+        *ngFor="let product of products"
+        [product]="product"
+        (addToCart)="addToCart($event)"
+      ></app-product-item>
+    </div>
+  </div>
+
+  <div class="product-container" *ngIf="!isDataLoaded">
+    <ngx-skeleton-loader
+      appearance="circle"
+      animation="progress"
+      count="12"
+      [theme]="{
+        height: '25em',
+        width: '15em',
+        'border-radius': '0',
+        border: '1px solid white',
+        'background-color': '#white',
+        margin: '4em'
+      }"
+    ></ngx-skeleton-loader>
+  </div>
+</div>
